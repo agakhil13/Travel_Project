@@ -23,4 +23,13 @@ class Hot_Tour:
     price : int
     rating: list
 
+class Teams:
+    id : int
+    name : str
+    phone : str
+    status : str
+    img : str
 
+class Wonder:
+    id : int
+    img : str

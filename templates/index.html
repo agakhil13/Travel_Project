@@ -28,7 +28,6 @@
       </div>
     </div>
     <div class="page">
-      <!-- Page Header--><a class="banner banner-top" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="_blank"><img src="{% static 'images/intense_02.jpg' %}" alt=""/></a>
       <header class="section page-header">
         <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
@@ -291,11 +290,11 @@
           <h3 class="title-block find-car oh"><span class="d-inline-block wow slideInUp">Different People — One Mission</span></h3>
           <div class="row row-30 justify-content-center box-ordered">
 
-
+            {% for team in teams %}
             <div class="col-sm-6 col-md-5 col-lg-3">
               <!-- Team Modern-->
               <article class="team-modern">
-                <div class="team-modern-header"><a class="team-modern-figure" href="#"><img class="img-circles" src="{% static 'images/user-1-118x118.jpg' %}" alt="" width="118" height="118"/></a>
+                <div class="team-modern-header"><a class="team-modern-figure" href="#"><img class="img-circles" src="{{BaseURL}}/{{team.img}}" alt="" width="118" height="118"/></a>
                   <svg x="0px" y="0px" width="270px" height="70px" viewbox="0 0 270 70" enable-background="new 0 0 270 70" xml:space="preserve">
                     <g>
                       <path fill="#161616" d="M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z"></path>
@@ -303,13 +302,13 @@
                   </svg>
                 </div>
                 <div class="team-modern-caption">
-                  <h6 class="team-modern-name"><a href="#">Diana Robinson</a></h6>
-                  <p class="team-modern-status">Founder, Owner</p>
-                  <h6 class="team-modern-phone"><a href="tel:#">+1 323-913-4688</a></h6>
+                  <h6 class="team-modern-name"><a href="#">{{team.name}}</a></h6>
+                  <p class="team-modern-status">{{team.status}}</p>
+                  <h6 class="team-modern-phone"><a href="tel:#">{{team.phone}}</a></h6>
                 </div>
               </article>
             </div>
-
+            {% endfor %}
 
             
           </div>
@@ -317,7 +316,7 @@
       </section>
       <!-- Section Subscribe-->
       <section class="section bg-default text-center offset-top-50">
-        <div class="parallax-container" data-parallax-img="{% static 'images/parallax-1-1920x850.jpg' %}">
+        <div class="parallax-container" data-parallax-img="{% static 'images/subscribe.jpg' %}">
           <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
             <div class="container">
               <h2 class="heading-2 oh font-weight-normal wow slideInDown"><span class="d-block font-weight-semi-bold">First-class Impressions</span><span class="d-block font-weight-light">are Waiting for You!</span></h2>
@@ -333,58 +332,17 @@
           <!-- Owl Carousel-->
           <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2" data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15" data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
             <!-- Thumbnail Classic-->
+            {% for wondertour in wondertours %}
             <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-1-270x195.jpg' %}" alt="" width="270" height="195"/>
+              <div class="thumbnail-mary-figure"><img src="{{BaseURL}}/{{wondertour.img}}" alt="" width="270" height="195"/>
               </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-1-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-1-270x195.jpg' %}" alt="" width="270" height="195"/></a>
+              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{{BaseURL}}/{{wondertour.img}}" data-lightgallery="item"><img src="{{BaseURL}}/{{wondertour.img}}" alt="" width="270" height="195"/></a>
               </div>
             </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-2-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-2-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-2-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-3-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-3-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-3-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-4-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-4-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-4-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-5-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-5-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-5-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-6-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-6-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-6-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="{% static 'images/gallery-image-7-270x195.jpg' %}" alt="" width="270" height="195"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="{% static 'images/gallery-image-7-1200x800-original.jpg' %}" data-lightgallery="item"><img src="{% static 'images/gallery-image-7-270x195.jpg' %}" alt="" width="270" height="195"/></a>
-              </div>
-            </article>
+            {% endfor %}
           </div>
         </div>
       </section>
-      <!-- Page Footer--><a class="banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="_blank"><img src="{% static 'images/intense_big_02.jpg' %}" alt=""/></a>
       <footer class="section footer-corporate context-dark">
         <div class="footer-corporate-inset">
           <div class="container">

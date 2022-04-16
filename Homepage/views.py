@@ -1,6 +1,6 @@
 from ssl import HAS_TLSv1_3
 from django.shortcuts import render
-from .models import Banner, Box_Category, Hot_Tour
+from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder
 
 # Create your views here.
 def banner():
@@ -68,10 +68,48 @@ def hot_tour():
 
     ht = [ht1, ht2, ht3]
     return ht
+def teams():
+    t1 = Teams()
+    t1.name = "Rakesh Yadav"
+    t1.status = "Owner, Founder"
+    t1.phone = "+91 7788996644"
+    t1.img = "owner.jpg"
 
+    t2 = Teams()
+    t2.name = "Rohini Sharma"
+    t2.status = "Travel Agent"
+    t2.phone = "+91 9933446677"
+    t2.img = "travelagent.jpg"
+
+    t3 = Teams()
+    t3.name = "Amit Singh"
+    t3.status = "Tour Consultant"
+    t3.phone = "+91 8880997766"
+    t3.img = "tourconsultant.jpg"
+
+    team = [t1, t2, t3]
+    return team
+def wonder():
+    w1 = Wonder()
+    w1.img = "wondertour1.jpg"
+    w2 = Wonder()
+    w2.img = "wondertour2.jpg"
+    w3 = Wonder()
+    w3.img = "wondertour3.jpg"
+    w4 = Wonder()
+    w4.img = "wondertour4.jpg"
+    w5 = Wonder()
+    w5.img = "wondertour5.jpg"
+    w6 = Wonder()
+    w6.img = "wondertour6.jpg"
+    w7 = Wonder()
+    w7.img = "wondertour7.jpg"
+    
+    wonders = [w1, w2, w3, w4, w5, w6, w7]
+    return wonders
 
 def page(request):
-    return render(request,'index.html', {'banner': banner(), 'boxes': box_category(), 'hottours': hot_tour()})
+    return render(request,'index.html', {'banner': banner(), 'boxes': box_category(), 'hottours': hot_tour(), 'teams': teams(), 'wondertours':wonder()})
 
 def about(request):
     return render(request,'about.html')
