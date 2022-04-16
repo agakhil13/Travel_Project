@@ -9,3 +9,8 @@ class Banner:
     bold_text : str
     img : str
 
+class Box_Category:
+    id: int
+    title : str
+    img : str
+
