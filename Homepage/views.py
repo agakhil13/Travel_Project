@@ -1,5 +1,6 @@
+from ssl import HAS_TLSv1_3
 from django.shortcuts import render
-from .models import Banner, Box_Category
+from .models import Banner, Box_Category, Hot_Tour
 
 # Create your views here.
 def banner():
@@ -40,8 +41,37 @@ def box_category():
     box = [box1, box2, box3]
     return box
 
+def hot_tour():
+    ht1 = Hot_Tour()
+    ht1.title = "Shimla, Himachal Pradesh"
+    ht1.img = "hottour1.jpg"
+    ht1.desc = "The town is famous for pleasant walking experiences on hillsides surrounded by pine and oak forests. This capital city of Himachal Pradesh is famous for The Mall, ridge, and toy train. With colonial style buildings, the town has relics of ancient past that lend it a distinct look."
+    ht1.review = 44
+    ht1.price = 250
+    ht1.rating = range(0,3)
+
+    ht2 = Hot_Tour()
+    ht2.title = "Coimbatore, Tamil Nadu"
+    ht2.img = "hottour2.jpg"
+    ht2.desc = "Coimbatore is also famous for foundry and automobile industries, manufacturing of textile industry equipment's, spares, motor pump sets, wet grinders and varied engineering goods and services. The development of Hydro electricity from the Pykara Falls in the 1930 led to a cotton boom in Coimbatore."
+    ht2.review = 23
+    ht2.price = 200
+    ht2.rating = range(0, 4)
+
+    ht3 = Hot_Tour()
+    ht3.title = "Gangtok, Sikkim"
+    ht3.img = "hottour3.jpg"
+    ht3.desc = "Gangtok is also known as the land of monasteries due to the sheer number of monasteries it houses. It has emerged as a major Buddhist pilgrimage center and has some of the finest monasteries in India that you cannot afford to miss. The Rumtek monastery is undoubtedly one of the greatest monasteries in the country."
+    ht3.review = 67
+    ht3.price = 350
+    ht3.rating = range (0, 2)
+
+    ht = [ht1, ht2, ht3]
+    return ht
+
+
 def page(request):
-    return render(request,'index.html', {'banner': banner(), 'boxes': box_category()})
+    return render(request,'index.html', {'banner': banner(), 'boxes': box_category(), 'hottours': hot_tour()})
 
 def about(request):
     return render(request,'about.html')

@@ -14,3 +14,13 @@ class Box_Category:
     title : str
     img : str
 
+class Hot_Tour:
+    id : int
+    title : str
+    desc : str
+    review : int
+    img : str
+    price : int
+    rating: list
+
+
