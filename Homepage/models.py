@@ -19,7 +19,6 @@ class Hot_Tour(models.Model):
     review = models.IntegerField()
     img = models.ImageField(upload_to='Hot_Tour')
     price = models.IntegerField()
-    rating= models.IntegerField()
 
 class Teams(models.Model):
     name = models.CharField(max_length=50)
