@@ -39,7 +39,7 @@
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
                   <div class="rd-navbar-brand">
-                    <!--Brand--><a class="brand" href="index.html"><img src="{% static 'images/logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
+                    <!--Brand--><a class="brand" href="/index.html"><img src="{% static 'images/logo-default-450x37.png' %}" alt="" width="225" height="18"/></a>
                   </div>
                 </div>
                 <div class="rd-navbar-aside-right rd-navbar-collapse">
@@ -73,9 +73,9 @@
                   </ul>
                   <!-- RD Navbar Nav-->
                   <ul class="rd-navbar-nav">
-                    <li class="rd-nav-item"><a class="rd-nav-link" href="login.html">Login</a>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="login">Login</a>
                     </li>
-                    <li class="rd-nav-item active"><a class="rd-nav-link" href="register.html">Register</a>
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="register">Register</a>
                   </ul>
                 </div>
               </div>
@@ -99,17 +99,22 @@
             </div>
           </article>
           <hr>
-          <form class="rd-form rd-form-variant-2 rd-mailform">
+          <br>
+          {% for message in messages %}
+                <h5 style="color:#01b3a7;"> **{{message}}** </h5>
+              {% endfor %}
+          <form action="register" method="post">
+            {% csrf_token %}
             <div class="row row-14 gutters-14">
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="first_name" type="text" name="first_name" data-constraints="@Required">
+                  <input class="form-input" id="first_name" type="text" name="first_name" required>
                   <label class="form-label" for="first_name">First Name</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="last_name" type="text" name="last_name" data-constraints="@Required">
+                  <input class="form-input" id="last_name" type="text" name="last_name" required>
                   <label class="form-label" for="last_name">Last Name</label>
                 </div>
               </div>
@@ -117,13 +122,13 @@
             <div class="row row-14 gutters-14">
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="password1" type="password" name="password1" data-constraints="@Required">
+                  <input class="form-input" id="password1" type="password" name="password1" required>
                   <label class="form-label" for="password1">Password</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="password2" type="password" name="password2" data-constraints="@Required">
+                  <input class="form-input" id="password2" type="password" name="password2" required>
                   <label class="form-label" for="password2">Confirm Password</label>
                 </div>
               </div>
@@ -131,19 +136,19 @@
             <div class="row row-14 gutters-14">
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="email" type="password" name="email" data-constraints="@Required">
+                  <input class="form-input" id="email" type="email" name="email" required>
                   <label class="form-label" for="email">E-mail</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-wrap">
-                  <input class="form-input" id="phone" type="text" name="phone" data-constraints="@Required">
-                  <label class="form-label" for="phone">Phone Number (10 digits)</label>
+                  <input class="form-input" id="username" type="text" name="username" required>
+                  <label class="form-label" for="username">username</label>
                 </div>
               </div>
             </div>
             <button class="button button-primary button-pipaluk" type="submit">Register</button>
-            <button class="button button-primary button-pipaluk" onclick="window.location.href='login.html';">Login</button>
+            <button class="button button-primary button-pipaluk" onclick="window.location.href='login';">Login</button>
           </form>
         </div>
       </section>
@@ -206,7 +211,7 @@
                   <div class="wow slideInLeft" data-wow-delay="0s">
                     <h6 class="text-spacing-100 text-uppercase">Quick links</h6>
                     <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-2">
-                      <li><a href="about.html">About us</a></li>
+                      <li><a href="/about.html">About us</a></li>
                       <li><a href="#">Our Tours</a></li>
                       <li><a href="#">Our Team</a></li>
                       <li><a href="#">Gallery</a></li>

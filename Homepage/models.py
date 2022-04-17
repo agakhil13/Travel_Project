@@ -29,5 +29,3 @@ class Teams(models.Model):
 class Wonder(models.Model):
     img = models.ImageField(upload_to='Wonder')
 
-class Login(models.Model):
-    img = models.ImageField(upload_to='Login')

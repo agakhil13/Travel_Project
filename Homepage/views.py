@@ -1,6 +1,9 @@
-from ssl import HAS_TLSv1_3
-from django.shortcuts import render
-from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder, Login
+from pyexpat.errors import messages
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.contrib import messages
+from django.contrib.auth.models import User, auth
+from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder
 
 # Create your views here.
 # def banner():
@@ -129,10 +132,3 @@ def contact(request):
 def typography(request):
     return render(request,'typography.html')
 
-def login(request):
-    login = Login.objects.last()
-    return render(request,'login.html', {'login': login})
-
-def register(request):
-    login = Login.objects.last()
-    return render(request,'register.html', {'login': login})
