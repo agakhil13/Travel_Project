@@ -110,9 +110,11 @@ from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder
 #     wonders = [w1, w2, w3, w4, w5, w6, w7]
 #     return wonders
 
-
+def session_expire(request):
+    return request.session.set_expiry(0)
 
 def page(request):
+    session_expire(request)
     if request.user.is_authenticated:
         banner = Banner.objects.all()
         box_category = Box_Category.objects.all()
@@ -124,11 +126,14 @@ def page(request):
     else:
         return redirect('accounts/login')
 def about(request):
+    session_expire(request)
     return render(request,'about.html')
 
 def contact(request):
+    session_expire(request)
     return render(request,'contact-us.html')
 
 def typography(request):
+    session_expire(request)
     return render(request,'typography.html')
 
