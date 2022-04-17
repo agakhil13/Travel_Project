@@ -50,3 +50,7 @@ def register(request):
     else:
         login = Login.objects.last()
         return render(request,'register.html', {'login': login})
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')

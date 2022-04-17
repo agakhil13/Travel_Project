@@ -1,7 +1,6 @@
 from pyexpat.errors import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder
 
@@ -114,15 +113,16 @@ from .models import Banner, Box_Category, Hot_Tour, Teams, Wonder
 
 
 def page(request):
-    banner = Banner.objects.all()
-    box_category = Box_Category.objects.all()
-    hot_tour = Hot_Tour.objects.all()
-    teams = Teams.objects.all()
-    wonder = Wonder.objects.all()
-    return render(request,'index.html', {'banner': banner, 'boxes': box_category, 'hottours': hot_tour, 'teams': teams, 'wondertours':wonder})
-    
-    #, 'boxes': box_category(), 'hottours': hot_tour(), 'teams': teams(), 'wondertours':wonder()})
-
+    if request.user.is_authenticated:
+        banner = Banner.objects.all()
+        box_category = Box_Category.objects.all()
+        hot_tour = Hot_Tour.objects.all()
+        teams = Teams.objects.all()
+        wonder = Wonder.objects.all()
+        
+        return render(request,'index.html', {'banner': banner, 'boxes': box_category, 'hottours': hot_tour, 'teams': teams, 'wondertours':wonder})
+    else:
+        return redirect('accounts/login')
 def about(request):
     return render(request,'about.html')
 
